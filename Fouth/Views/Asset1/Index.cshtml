@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Fouth.Models.Asset>
+
+<h2>Asset Page</h2>
+<hr />
+<p>
+    @using (Html.BeginForm("Index", "Asset1", FormMethod.Get))
+    {
+        <input type="text" name="assetsearch" class="form-control" placeholder="Search..." autocomplete="off" /><br />
+        <input type="submit" class="btn btn-primary" value="Search" />
+        
+    }
+</p>
+<h6 style="text-align:right">No of Records : <b>@Model.Count(i => Convert.ToBoolean(i.Cost))</b></h6>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered thead-dark table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AssetId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AssetId })
+            </td>
+        </tr>
+    }
+
+</table>

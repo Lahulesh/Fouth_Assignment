@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Fouth.Models.Vendor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vendor Page</h2>
+<table class="table table-bordered table-hover table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityName)
+        </td>
+    </tr>
+}
+
+</table>

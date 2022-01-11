@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        const months = [
+            "Welcome Samir Kamble...",
+            "Welcome Milind Panchal.",
+            "Welcome Sanket Rane....",
+            "Welcome Rahul Shetye...",
+        ];
+        var randomtext = months[Math.floor(Math.random() * months.length)];
+        document.getElementById("ptext").innerHTML = randomtext;
+
+    </script>
+}
+
+<h1 id="ptext" class="homepage"></h1>
+<img id="bgimg" class="welcome" src="~/welcome-04.jpg" />
+
+
+

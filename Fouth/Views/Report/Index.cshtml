@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Fouth.Models.Report>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Report</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Report", FormMethod.Get))
+    {
+        <input type="text" name="reportsearch" class="form-control" placeholder="Search..." autocomplete="off" /><br />
+        <input type="submit" class="btn btn-primary" value="Search" />
+    }
+</p>
+<h6 style="text-align:right">No of Records : <b>@Model.Count(i => Convert.ToBoolean(i.Cost))</b></h6>
+<table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+
+        </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+        </tr>
+    }
+
+</table>
+<h5 style="text-align:right;"><b>Total Cost : @Model.Sum(i => i.Cost)</b></h5>
